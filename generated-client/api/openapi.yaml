@@ -1,0 +1,443 @@
+openapi: 3.0.4
+info:
+  title: HousingRentalSystem
+  version: "1.0"
+servers:
+- url: /
+paths:
+  /api/Properties:
+    get:
+      operationId: GetAllProperties
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Property'
+                type: array
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Property'
+                type: array
+            text/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Property'
+                type: array
+          description: OK
+      tags:
+      - Properties
+    post:
+      operationId: CreateProperty
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Property'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Property'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Property'
+      responses:
+        "201":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Property'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Property'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Property'
+          description: Created
+      tags:
+      - Properties
+  /api/Properties/{id}:
+    delete:
+      operationId: DeleteProperty
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      responses:
+        "204":
+          description: No Content
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+      tags:
+      - Properties
+    get:
+      operationId: GetPropertyById
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Property'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Property'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Property'
+          description: OK
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+      tags:
+      - Properties
+    put:
+      operationId: UpdateProperty
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Property'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Property'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Property'
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Property'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Property'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Property'
+          description: OK
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+      tags:
+      - Properties
+  /api/Tenants:
+    get:
+      operationId: GetTenants
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Tenant'
+                type: array
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Tenant'
+                type: array
+            text/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Tenant'
+                type: array
+          description: OK
+      tags:
+      - Tenants
+    post:
+      operationId: CreateTenant
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Tenant'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Tenant'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Tenant'
+      responses:
+        "201":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Tenant'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tenant'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Tenant'
+          description: Created
+      tags:
+      - Tenants
+  /api/Tenants/{id}:
+    delete:
+      operationId: DeleteTenant
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      responses:
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        "204":
+          description: No Content
+      tags:
+      - Tenants
+    get:
+      operationId: GetTenantById
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Tenant'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tenant'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Tenant'
+          description: OK
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+      tags:
+      - Tenants
+    put:
+      operationId: UpdateTenant
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Tenant'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Tenant'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Tenant'
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Tenant'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tenant'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Tenant'
+          description: OK
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+      tags:
+      - Tenants
+components:
+  schemas:
+    ProblemDetails:
+      additionalProperties: {}
+      example:
+        instance: instance
+        detail: detail
+        type: type
+        title: title
+        status: 0
+      properties:
+        type:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        status:
+          format: int32
+          nullable: true
+          type: integer
+        detail:
+          nullable: true
+          type: string
+        instance:
+          nullable: true
+          type: string
+      type: object
+    Property:
+      additionalProperties: false
+      example:
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        address: address
+        price: 6.027456183070403
+        id: 0
+        availability: true
+        type: type
+        updatedAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: int32
+          type: integer
+        address:
+          nullable: true
+          type: string
+        price:
+          format: double
+          type: number
+        type:
+          nullable: true
+          type: string
+        availability:
+          type: boolean
+        createdAt:
+          format: date-time
+          type: string
+        updatedAt:
+          format: date-time
+          type: string
+      type: object
+    Tenant:
+      additionalProperties: false
+      example:
+        name: name
+        property:
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          address: address
+          price: 6.027456183070403
+          id: 0
+          availability: true
+          type: type
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+        rentalStartDate: 2000-01-23T04:56:07.000+00:00
+        rentalEndDate: 2000-01-23T04:56:07.000+00:00
+        id: 0
+        propertyId: 6
+        email: email
+      properties:
+        id:
+          format: int32
+          type: integer
+        name:
+          nullable: true
+          type: string
+        email:
+          nullable: true
+          type: string
+        propertyId:
+          format: int32
+          type: integer
+        rentalStartDate:
+          format: date-time
+          type: string
+        rentalEndDate:
+          format: date-time
+          type: string
+        property:
+          $ref: '#/components/schemas/Property'
+      type: object
+
