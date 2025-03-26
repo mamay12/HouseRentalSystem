@@ -14,7 +14,7 @@ const config: ZudokuConfig = {
       },
     ],
   },
-  // redirects: [{ from: "/", to: "/docs/installation" }],
+  redirects: [{ from: "/", to: "/docs/installation" }],
   apis: {
     type: "file",
     input: "./apis/openapi.json",
