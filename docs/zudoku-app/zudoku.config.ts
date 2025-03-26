@@ -15,7 +15,7 @@ const config: ZudokuConfig = {
         ],
     },
     redirects: [
-        {from: "/docs/", to: "/HouseRentalSystem/docs/"},
+        {from: "/", to: "HouseRentalSystem/docs/installation"},
         {from: "/docs/about/", to: "/HouseRentalSystem/docs/about"},
         {from: "/docs/authorization/", to: "/HouseRentalSystem/docs/authorization"},
         {from: "/docs/installation/", to: "/HouseRentalSystem/docs/installation"},
