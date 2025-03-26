@@ -10,7 +10,7 @@ const config: ZudokuConfig = {
       {
         type: "category",
         label: "Overview",
-        items: ["HouseRentalSystem/docs/installation", "HouseRentalSystem/docs/authorization", "HouseRentalSystem/docs/about"],
+        items: ["docs/installation", "docs/authorization", "docs/about"],
       },
     ],
   },
