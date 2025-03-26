@@ -1,0 +1,37 @@
+name: Deploy Zudoku Server
+
+on:
+  push:
+    branches:
+      - main  # Запускать деплой при пуше в ветку main (или другую, если требуется)
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Шаг 1: Проверка репозитория
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Шаг 2: Установка Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '22'  # Укажите нужную версию Node.js
+
+      # Шаг 3: Переход в папку zudoku, установка зависимостей и сборка
+      - name: Install dependencies and build Zudoku
+        run: |
+          cd zudoku-app  # Переходим в папку с сервером
+          npm install  # Устанавливаем зависимости для серверной части
+          npm run build  # Собираем сервер (если у вас есть такой скрипт)
+
+      # Шаг 4: Деплой на сервер (например, через SSH) или деплой в нужное место
+      - name: Deploy to remote server
+        run: |
+          # Пример деплоя на сервер с использованием SCP или SSH
+          # Замените следующими командами для вашего конкретного сервера
+          scp -r zudoku-app/build/* mamay12.github.io/HouseRentalSystem/
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}  # Убедитесь, что ваш ключ SSH добавлен в секреты репозитория
