@@ -29,7 +29,7 @@ jobs:
           npm run build
 
       - name: Upload build artifacts
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v3
         with:
           name: zudoku-build
           path: docs/zudoku-app/dist  # Укажите путь к собранным файлам
