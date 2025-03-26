@@ -28,9 +28,9 @@ jobs:
           npm install
           npm run build
 
-      - name: Fix CSS paths
+      - name: Fix CSS paths in all HTML files
         run: |
-          sed -i 's|href="/assets/|href="../assets/|g'
+          find docs/zudoku-app/dist -type f -name "*.html" -exec sed -i 's|href="/assets/|href="../assets/|g' {} +
 
       - name: Upload build artifacts
         uses: actions/upload-pages-artifact@v3
