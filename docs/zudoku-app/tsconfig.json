@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "ES2022",
     "lib": ["ESNext", "DOM", "DOM.Iterable", "WebWorker"],
-    "module": "ESNext",
+    "module": "ES2022",
     "moduleResolution": "Bundler",
     "useDefineForClassFields": true,
     "skipLibCheck": true,
