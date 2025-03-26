@@ -23,7 +23,7 @@ jobs:
       # Шаг 3: Переход в папку zudoku, установка зависимостей и сборка
       - name: Install dependencies and build Zudoku
         run: |
-          cd zudoku-app  # Переходим в папку с сервером
+          cd docs/zudoku-app  # Переходим в папку с сервером
           npm install  # Устанавливаем зависимости для серверной части
           npm run build  # Собираем сервер (если у вас есть такой скрипт)
 
@@ -32,6 +32,6 @@ jobs:
         run: |
           # Пример деплоя на сервер с использованием SCP или SSH
           # Замените следующими командами для вашего конкретного сервера
-          scp -r zudoku-app/build/* mamay12.github.io/HouseRentalSystem/
+          scp -r docs/zudoku-app/build/* mamay12.github.io/HouseRentalSystem/
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}  # Убедитесь, что ваш ключ SSH добавлен в секреты репозитория
