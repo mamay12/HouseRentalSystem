@@ -28,6 +28,10 @@ jobs:
           npm install
           npm run build
 
+      - name: Fix CSS paths
+        run: |
+          sed -i 's|href="/assets/|href="../assets/|g'
+
       - name: Upload build artifacts
         uses: actions/upload-pages-artifact@v3
         with:
