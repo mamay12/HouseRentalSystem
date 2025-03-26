@@ -1,6 +1,7 @@
 import type {ZudokuConfig} from "zudoku";
 
 const config: ZudokuConfig = {
+    basePath:"HouseRentalSystem",
     topNavigation: [
         {id: "docs", label: "Documentation"},
         {id: "api", label: "API Reference"},
