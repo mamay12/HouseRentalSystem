@@ -32,5 +32,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           folder: docs/zudoku/dist  # Только то, что нужно публиковать
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}  # Убедитесь, что ваш ключ SSH добавлен в секреты репозитория
+          github_token: ${{ secrets.GITHUB_TOKEN }}
