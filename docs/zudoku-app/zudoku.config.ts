@@ -15,20 +15,7 @@ const config: ZudokuConfig = {
         ],
     },
     redirects: [
-        {from: "/docs", to: "https://mamay12.github.io/HouseRentalSystem/docs"},
-        {from: "/docs/", to: "https://mamay12.github.io/HouseRentalSystem/docs/"},
-        {from: "/docs/about", to: "https://mamay12.github.io/HouseRentalSystem/docs/about"},
-        {from: "/docs/about/", to: "https://mamay12.github.io/HouseRentalSystem/docs/about/"},
-        {from: "https://mamay12.github.io/docs/authorization", to: "https://mamay12.github.io/HouseRentalSystem/docs/authorization"},
-        {from: "https://mamay12.github.io/docs/authorization/", to: "https://mamay12.github.io/HouseRentalSystem/docs/authorization/"},
-        {from: "/docs/installation", to: "https://mamay12.github.io/HouseRentalSystem/docs/installation"},
-        {from: "/docs/installation/", to: "https://mamay12.github.io/HouseRentalSystem/docs/installation/"},
-        {from: "/api", to: "https://mamay12.github.io/HouseRentalSystem/api/properties"},
-        {from: "/api/", to: "https://mamay12.github.io/HouseRentalSystem/api/properties/"},
-        {from: "/api/properties", to: "https://mamay12.github.io/HouseRentalSystem/api/properties"},
-        {from: "/api/properties/", to: "https://mamay12.github.io/HouseRentalSystem/api/properties/"},
-        {from: "/api/tenants", to: "https://mamay12.github.io/HouseRentalSystem/api/tenants"},
-        {from: "/api/tenants/", to: "https://mamay12.github.io/HouseRentalSystem/api/tenants/"},
+        {from: "/", to: "/docs"},
     ],
 
     apis: {
