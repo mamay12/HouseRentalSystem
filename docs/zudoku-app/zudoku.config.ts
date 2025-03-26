@@ -1,7 +1,6 @@
 import type { ZudokuConfig } from "zudoku";
 
 const config: ZudokuConfig = {
-  basePath:'/HouseRentalSystem',
   topNavigation: [
     { id: "docs", label: "Documentation" },
     { id: "api", label: "API Reference" },
@@ -15,7 +14,7 @@ const config: ZudokuConfig = {
       },
     ],
   },
-  redirects: [{ from: "/", to: "/docs/installation" }],
+  // redirects: [{ from: "/", to: "/docs/installation" }],
   apis: {
     type: "file",
     input: "./apis/openapi.json",
