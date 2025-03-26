@@ -31,21 +31,12 @@ jobs:
           retention-days: 1  # Сохранение артефакта на 1 день (по умолчанию 90)
 
   deploy:
-    needs: build  # Запуск только после успешного завершения job "build"
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    needs: build
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Download build artifacts
-        uses: actions/download-artifact@v4
-        with:
-          name: zudoku-build
-          path: docs/zudoku-app/dist  # Куда загрузить артефакты
-
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages
-          publish_dir: docs/zudoku-app/dist  # Загружаем именно артефакт
+        id: deployment
+        uses: actions/deploy-pages@v4
