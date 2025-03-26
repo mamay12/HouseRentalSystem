@@ -31,7 +31,7 @@ jobs:
       - name: Upload build artifacts
         uses: actions/upload-pages-artifact@v3
         with:
-          name: zudoku-build
+          name: github-pages
           path: docs/zudoku-app/dist  # Укажите путь к собранным файлам
           retention-days: 1  # Сохранение артефакта на 1 день (по умолчанию 90)
 
