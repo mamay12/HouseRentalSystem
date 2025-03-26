@@ -10,11 +10,11 @@ const config: ZudokuConfig = {
       {
         type: "category",
         label: "Overview",
-        items: ["docs/installation", "docs/authorization", "docs/about"],
+        items: ["HouseRentalSystem/docs/installation", "HouseRentalSystem/docs/authorization", "HouseRentalSystem/docs/about"],
       },
     ],
   },
-  redirects: [{ from: "/", to: "/docs/installation" }],
+  redirects: [{ from: "/", to: "HouseRentalSystem/docs/installation" }],
   apis: {
     type: "file",
     input: "./apis/openapi.json",
