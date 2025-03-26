@@ -33,5 +33,3 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           folder: docs/zudoku/dist  # Только то, что нужно публиковать
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}  # Убедитесь, что ваш ключ SSH добавлен в секреты репозитория
