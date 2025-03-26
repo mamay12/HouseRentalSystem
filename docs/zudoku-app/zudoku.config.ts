@@ -18,10 +18,8 @@ const config: ZudokuConfig = {
         {from: "/", to: "HouseRentalSystem/docs/installation"},
         {from: "/docs/about/", to: "/HouseRentalSystem/docs/about"},
         {from: "/docs/authorization/", to: "/HouseRentalSystem/docs/authorization"},
-        {from: "/docs/installation/", to: "/HouseRentalSystem/docs/installation"},
-        {from: "/api/", to: "/HouseRentalSystem/api/properties"},
-        {from: "/api/properties/", to: "/HouseRentalSystem/api/properties/"},
-        {from: "/api/tenants/", to: "/HouseRentalSystem/api/tenants/"},
+        {from: "/api/properties/", to: "/HouseRentalSystem/api/properties"},
+        {from: "/api/tenants/", to: "/HouseRentalSystem/api/tenants"},
     ],
     apis: {
         type: "file",
