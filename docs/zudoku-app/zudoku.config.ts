@@ -18,7 +18,7 @@ const config: ZudokuConfig = {
     {from: "/docs/installation", to: "/HouseRentalSystem/docs/installation" },
     {from: "/docs/authorization", to: "/HouseRentalSystem/docs/authorization" },
     {from: "/docs/about", to: "/HouseRentalSystem/docs/about" },
-    {from: "/api", to: "/HouseRentalSystem/api" },
+    {from: "https://mamay12.github.io/api", to: "https://mamay12.github.io/HouseRentalSystem/api" },
 
   ],
   apis: {
