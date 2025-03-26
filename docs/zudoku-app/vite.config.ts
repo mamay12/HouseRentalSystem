@@ -1,8 +1,5 @@
 import {defineConfig} from 'vite'
 
-const isLocal = window.location.hostname === 'localhost';  // Проверка на localhost
-
-
 export default defineConfig({
-    base: isLocal ? './' : '/HouseRentalSystem/',
+    base: process.env.VITE_ENV === 'development' ? './' : '/HouseRentalSystem/', // Используем переменную окружения для определения пути
 })
