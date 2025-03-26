@@ -2,5 +2,10 @@
   "root": true,
   "extends": "eslint:recommended",
   "parser": "@typescript-eslint/parser",
+  "env": {
+    "browser": true,
+    "node": true,
+    "jasmine": true
+  },
   "plugins": ["@typescript-eslint"]
 }

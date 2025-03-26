@@ -1,6 +1,8 @@
 import {defineConfig} from 'vite'
 
+const isLocal = window.location.hostname === 'localhost';  // Проверка на localhost
+
+
 export default defineConfig({
-    // eslint-disable-next-line no-undef
-    base: process.env.NODE_ENV === 'development' ? './' : '/HouseRentalSystem/',
+    base: isLocal ? './' : '/HouseRentalSystem/',
 })
