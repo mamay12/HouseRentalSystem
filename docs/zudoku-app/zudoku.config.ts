@@ -14,7 +14,13 @@ const config: ZudokuConfig = {
       },
     ],
   },
-  redirects: [{ from: "/", to: "HouseRentalSystem/docs/installation" }],
+  redirects: [{ from: "/", to: "/HouseRentalSystem/docs/installation" },
+    {from: "/docs/installation", to: "/HouseRentalSystem/docs/installation" },
+    {from: "/docs/authorization", to: "/HouseRentalSystem/docs/authorization" },
+    {from: "/docs/about", to: "/HouseRentalSystem/docs/about" },
+    {from: "/api", to: "/HouseRentalSystem/api" },
+
+  ],
   apis: {
     type: "file",
     input: "./apis/openapi.json",
