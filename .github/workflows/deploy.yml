@@ -3,33 +3,49 @@ name: Deploy Zudoku Server
 on:
   push:
     branches:
-      - main  # Запускать деплой при пуше в ветку main (или другую, если требуется)
+      - main  # Запускать деплой при пуше в main
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-      # Шаг 1: Проверка репозитория
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Шаг 2: Установка Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '22'  # Укажите нужную версию Node.js
+          node-version: '22'
 
-      # Шаг 3: Переход в папку zudoku, установка зависимостей и сборка
       - name: Install dependencies and build Zudoku
         run: |
-          cd docs/zudoku-app  # Переходим в папку с сервером
-          npm install  # Устанавливаем зависимости для серверной части
-          npm run build  # Собираем сервер (если у вас есть такой скрипт)
+          cd docs/zudoku-app
+          npm install
+          npm run build
 
-      # Шаг 4: Деплой на сервер (например, через SSH) или деплой в нужное место
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: zudoku-build
+          path: docs/zudoku-app/dist  # Укажите путь к собранным файлам
+          retention-days: 1  # Сохранение артефакта на 1 день (по умолчанию 90)
+
+  deploy:
+    needs: build  # Запуск только после успешного завершения job "build"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: zudoku-build
+          path: docs/zudoku-app/dist  # Куда загрузить артефакты
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          folder: docs/zudoku/dist  # Только то, что нужно публиковать
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: docs/zudoku-app/dist  # Загружаем именно артефакт
